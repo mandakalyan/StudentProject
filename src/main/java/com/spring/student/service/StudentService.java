@@ -2,6 +2,7 @@ package com.spring.student.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class StudentService
 	public List<Student> getAllStudents(){
 		List<Student> students =new ArrayList<Student>();
 		studentRepo.findAll().forEach(student1->students.add(student1));
+		System.out.println("all students :"+students);
 		return students;
 		
 	}
@@ -31,12 +33,12 @@ public class StudentService
 		studentRepo.save(student);
 	}
 	
-	public void deleteStudentBYId(int id) {
-		studentRepo.deleteById(id);
+	public void deleteStudentByName(String name) {
+		studentRepo.deleteByStudentName(name);
 	}
    
-	public Student getStudentById(int id) {
-		return studentRepo.findById(id).get();
+	public List<Student> getStudentByName(String name) {
+		return studentRepo.findByStudentName(name);
 		
 	}
 	

@@ -1,5 +1,7 @@
 package com.spring.student.entity;
 
+import java.util.Objects;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
@@ -8,17 +10,16 @@ import jakarta.persistence.Id;
 public class Student 
 {
 	@Id
-	private int studentId;
-	
+	private String studentId;
 	private String studentName;
 	private String address;
 	private long contactNumber;
 	private String course;
 	private float fee;
-	public int getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(int studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
 	public String getStudentName() {
@@ -51,7 +52,7 @@ public class Student
 	public void setFee(float fee) {
 		this.fee = fee;
 	}
-	public Student(int studentId, String studentName, String address, long contactNumber, String course, float fee) {
+	public Student(String studentId, String studentName, String address, long contactNumber, String course, float fee) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
@@ -64,6 +65,8 @@ public class Student
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
 	@Override
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", address=" + address

@@ -1,6 +1,7 @@
 package com.spring.student.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,14 +40,14 @@ public class StudentController {
 		return student;
 	}
 	
-	@GetMapping("/getbyid/{id}")
-	public Student getStudentById(@PathVariable("id") int id) {
-		return service.getStudentById(id);
+	@GetMapping("/getbyName/{name}")
+	public List<Student> getStudentById(@PathVariable("name") String studentName) {
+		return service.getStudentByName(studentName);
 	}
 	
-	@DeleteMapping("/deletestudent/{id}")
-	public void deleteStudent(@PathVariable int id) {
-		 service.deleteStudentBYId(id);
+	@DeleteMapping("/deletestudent/{name}")
+	public void deleteStudent(@PathVariable("name") String studentName) {
+		 service.deleteStudentByName(studentName);
 	}
 	
 	
